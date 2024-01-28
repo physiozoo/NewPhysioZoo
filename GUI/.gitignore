@@ -1,0 +1,22 @@
+### Physionet ###
+
+
+ArNet2/
+
+# Mis dir
+From Ori/
+Saved/
+
+*.gif
+*.asv
+
+atr2quality.m
+PhysioZooGUI_Saved.m
+PhysioZooGUI_PeakDetection - Copy.m
+PhysioZooGUI_HRVAnalysis OLD.m
+
+get_biomarkers.m
+get_fiducials.m
+
+PPG/pyPPG OLD.exe
+

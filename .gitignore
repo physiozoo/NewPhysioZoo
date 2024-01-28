@@ -1,0 +1,151 @@
+.vscode/
+
+### Physionet ###
+# Physionet data files
+
+#*.dat
+#*.hea
+#*.atr
+*.qrs*
+
+*.zip
+
+# Default local physionet install directory
+bin/wfdb/
+
+# Local data files
+database/
+
+# Old examples files
+Examples OLD/
+Examples OLD OLD/
+
+# Mis dir
+Logo Main/
+Module1/
+My Results/
+PhysioZoo/
+PhysioZoo_resources/
+Screenshots/
+Yonatan/
+Documentation/
+Config - Copy/
+Examples - Copy/
+Temp/
+mainGUI/
+Config ECG/
+ABF Reader/
+wfdb/
+Ido/
+Jessie Data/
+Eugene/
+Results/
+Test Set for Loader/
+Moran/
+Documentation for gui-layout-toolbox-2.3.1/
+Examples sqi/
+#Examples All/
+#ExamplesTXT/Armond/
+#ExamplesTXT/Uta/
+#ExamplesTXT/SpO2/
+#ExamplesTXT/Test Rhythms/
+Temp/
+#GUI/Copys/
+TEST_PZ_19/
+Examples SpO2/
+ExamplesTXT/
+Examples Shani/
+Examples Sheina/
+Examples Will/
+Examples Eran/
+Create Examples/
+Problems/
+
+Examples/
+
+pebm - Copy/
+
+SHANY Sheina ecg-kit.txt
+
+GUI/Biomarkers/try_exp.m
+
+tempYAML.yml
+
+*.prj
+#*.png
+*.docx
+*.rar
+*.pdf
+*.ai
+
+
+### Generated files ###
+*.eps
+*.xlsx
+
+### Matlab ###
+
+# Saved data files
+*.mat
+
+# Windows default autosave extension
+*.asv
+
+# OSX / *nix default autosave extension
+*.m~
+
+# Compiled MEX binaries (all platforms)
+*.mex*
+
+# Simulink Code Generation
+slprj/
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk

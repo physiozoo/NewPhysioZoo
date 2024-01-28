@@ -1,0 +1,178 @@
+# Human parameter values of the SpO2 toolbox
+---
+parameters_type:
+    mammal: human
+    integration_level: oximetry
+
+# SpO2 Signal filtering
+filtSpO2:
+    MedianSpO2:
+        enable:
+            value: false     # possible values : {True, False}
+            description: Whether to apply median filter
+            name: Enable median filter
+            units: boolean
+        FilterLength:
+            value: 9       # possible values : positive only odd
+            description: The length of the filter
+            name: Filter Length
+            units: sec
+    #ResampSpO2:
+    #    enable:
+    #        value: true     # possible values : {True, False}
+    #        description: Whether to enable resampling
+    #        name: Enable resampling
+    #        units: boolean
+    #    Original_fs:
+    #        value: 1       # possible values : positive
+    #        description: The original frequency
+    #        name: Original Fs
+    #        units: Hz
+    RangeSpO2: # RemovalAbnormalities
+        enable:
+            value: true     # possible values : {True, False}
+            description: Whether to remove the abnormalities
+            name: Enable removal of the abnormalities
+            units: boolean
+        Range_min:
+            value: 50       # possible values : between 0 and 100
+            description: Minimal value to remove samples
+            name: Range min
+            units: '%'
+        Range_max:
+            value: 100       # possible values : between 0 and 100
+            description: Maximal value to remove samples
+            name: Range max
+            units: '%'
+    BlockSpO2:
+        enable:
+            value: false     # possible values : {True, False}
+            description: Whether to enable range-based filtering
+            name: Enable block filter
+            units: boolean
+        Treshold:
+            value: 50       # possible values : between 0 and 100
+            description: Treshold parameter for block data filter
+            name: Treshold
+            units: '%' 
+    DFilterSpO2:
+        enable:
+            value: false     # possible values : {True, False}
+            description: Whether to enable range-based filtering
+            name: Enable block filter
+            units: boolean
+        Diff:
+            value: 4       # possible values : between 0 and 100
+            description: Parameter of the delta filter
+            name: Diff
+            units: '%'         
+
+OveralGeneralMeasures:
+    ZC_Baseline:
+        value: 85       # possible values : between 0 and 100
+        description: Baseline for calculating number of zero-crossing points
+        name: ZC Baseline
+        units: '%'
+    Percentile:
+        value: 1       # possible values : positive
+        description: Percentile to perform
+        name: Percentile
+        units: n.u.
+    M_Threshold:
+        value: 2       # possible values : between 0 and 100
+        description: Percentage of the signal M_Threshold % below median oxygen saturation
+        name: M Threshold
+        units: '%'
+    DI_Window:
+        value: 12       # possible values : positive
+        description: Window length to calculate Delta Index
+        name: DI Window
+        units: sec
+
+ODIMeasures:    
+    Hard_Threshold:
+        value: 90       # possible values : between 0 and 100
+        description: Threshold to detect desaturations
+        name: Hard Threshold
+        units: '%'
+    Relative:
+        value: false       # possible values : true or false
+        description: Whether to use relative or hard threshold
+        name: Use hard threshold for detecting desaturations 
+        units: boolean  
+    Desat_Max_Length:
+        value: 90       # It has to be a positive number
+        description: Maximum lenght for the desaturation detector
+        name: Max Length
+        units: sec  
+    ODI_Threshold:
+        value: 3       # possible values : positive
+        description: Threshold to compute Oxygen Desaturation Index
+        name: ODI Threshold
+        units: '%'    
+
+HypoxicBurdenMeasures:
+    CT_Threshold:
+        value: 90       # possible values : between 0 and 100
+        description: Percentage of the time spent below the CT_Threshold % oxygen saturation level
+        name: CT Threshold
+        units: '%'
+    CA_Baseline:
+        value: 85       # possible values : between 0 and 100
+        description: Baseline to compute the CA feature
+        name: CA Baseline
+        units: n.u.
+
+ComplexityMeasures:
+    CTM_Threshold:
+        value: 0.25       # possible values : positive
+        description: Radius of Central Tendency Measure
+        name: CTM Threshold
+        units: n.u.
+    DFA_Window:
+        value: 20       # possible values : positive
+        description: Length of window to calculate DFA biomarker
+        name: DFA Window
+        units: sec
+    M_Sampen:
+        value: 3       # possible values : positive
+        description: Embedding dimension to compute SampEn
+        name: M Sampen
+        units: n.u.
+    R_Sampen:
+        value: 0.2       # possible values : positive
+        description: Tolerance to compute SampEn
+        name: R Sampen
+        units: n.u.
+    M_ApEn:
+        value: 2       # possible values : positive
+        description: Embedding dimension to compute ApEn
+        name: M ApEn
+        units: n.u.
+    R_ApEn:
+        value: 0.25      # possible values : positive
+        description: Tolerance to compute ApEn
+        name: R ApEn
+        units: n.u.    
+
+PeriodicityMeasures:
+    PRSA_Window:
+        value: 10       # possible values : positive
+        description: Fragment duration of PRSA
+        name: PRSA Window
+        units: sec
+    K_AC:
+        value: 2       # possible values : positive
+        description: Number of values to shift when computing autocorrelation
+        name: K AC
+        units: sec
+    Frequency_Low:
+        value: 0.014       # possible values : positive
+        description: Low threshold for the PSD_band biomarker
+        name: Frequency Low
+        units: Hz
+    Frequency_High:
+        value: 0.033       # possible values : positive
+        description: High threshold for the PSD_band biomarker
+        name: Frequency High
+        units: Hz    

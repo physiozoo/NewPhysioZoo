@@ -1,0 +1,84 @@
+mammal:             human
+integration_level:  ECG
+peak_detector:      rqrs
+peak_adjustment:    default
+
+# rqrs config file for Human:
+
+HR:
+    value: 75
+    units: bpm
+    description:  Typical heart rate
+    name: HR
+QS:
+    value: 0.07
+    units: sec
+    description: Typical QRS duration
+    name: QS
+QT:
+    value: 0.35
+    units: sec
+    description: Typical QT duration
+    name: QT
+QRSa:
+    value: 750
+    units: microvolts
+    description: Typical QRS peak-to-peak amplitude
+    name: QRSa
+QRSamin:
+    value: 130
+    units: microvolts
+    description: Minimum QRS peak-to-peak amplitude
+    name: QRSamin
+RRmin:
+    value: 0.28
+    units: sec
+    description: Minimum RR interval ("refractory period")
+    name: RRmin
+RRmax:
+    value: 2.4
+    units: sec
+    description: Maximum RR interval; thresholds will be adjusted if no peaks are detected within this interval
+    name: RRmax
+window_size_sec:
+               # 0.8*QS
+        value: 0.056
+        description: Size of rqrs forward-search window
+        name: rqrs Window Size
+        units: Seconds    
+
+# jqrs/wjqrs
+
+lcf:
+    value: 3
+    units: Hz
+    description: Low cutoff frequency
+    name: lcf
+hcf:
+    value: 100
+    units: Hz
+    description: High cutoff frequency
+    name: hcf
+thr:
+    value: 0.5
+    units: n.u.
+    description: Energy threshold
+    name: thr
+rp:
+    value: 0.250
+    units: sec
+    description: Refractory period
+    name: rp
+ws:
+    value: 10
+    units: sec
+    description: Window size
+    name: ws
+    
+# adjusting peaks location
+
+peaks_window:
+    value: 150
+    units: ms
+    description: Search for a peak within a window of size peak_window. Used for manual correction of peaks location or peak_adjustment.
+    name: Peaks window        

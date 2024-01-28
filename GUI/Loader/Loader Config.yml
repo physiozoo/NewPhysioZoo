@@ -1,0 +1,44 @@
+---
+data_type:
+    select: [second,index]
+    electrography: [volt,millivolt,microvolt]
+    interval: [second,millisecond,index]
+    beating_rate: [bpm]
+    peak: [second,millisecond,index]
+    oxygen_saturation: [percent]
+    photoplethysmography: [volt,millivolt,microvolt, nu]
+integration_level:
+    - select
+    - electrocardiogram
+    - electrogram
+    - action potential
+    - oximetry
+    - photoplethysmogram
+mammal:
+    - select
+    - dog
+    - mouse
+    - rabbit
+    - human
+    - custom
+units:
+    second: [s,sec,second]
+    millisecond: [ms,msec,millisecond]
+    volt: [v,volt]
+    millivolt: [mv,mvolt,millivolt,mV]
+    microvolt: [uv,mkvolt,microvolt,mikrovolt]
+    index: [index,ind,i]
+    bpm: [bpm]
+    percent: [percent,'%']
+alarm:
+    msg_1: The sampling frequency Fs was re-computed to match the time axis that was entered
+    msg_2: The set of channels selected do not match
+    msg_3: The sampling frequency entered Fs does not match with the selected time channel
+    msg_4: Wrong TXT file
+    msg_5: No Data
+    msg_6: OK
+    msg_7: Canceled by User
+    msg_8: Channel Info problem
+    msg_9: WFDB No Header file has existed
+    msg_10: WFDB No Channel's information has found
+    msg_11: Some problem with data was detected.WFDB No Channel's information has found

@@ -1,0 +1,38 @@
+mammal:             default
+integration_level:  Electrogram
+peak_detector:      egmbeat
+peak_adjustment:    default
+    
+# EGM peaks
+
+ref_per:
+    value: 140.0
+    units: msec
+    description: Typical refractory period
+    name: ref_per
+bi:
+    value: 327.3
+    units: msec
+    description: Typical beating interval
+    name: bi    
+    
+init_prom_thresh:
+    value: 20
+    units: '%'
+    description: Prominence threshold coefficient for initial peak detection
+    name: Initial prominence threshold    
+    
+classify_prom_thresh:
+    value: 80
+    units: '%'
+    description: Prominence threshold coefficient for peak clasification
+    name: Clasifying prominence threshold    
+    
+# adjusting peaks location
+
+peaks_window:
+    value: 40
+    units: ms
+    description: Search for a peak within a window of size peak_window. Used for manual correction of peaks location or peak_adjustment.
+    name: Peaks window    
+    
