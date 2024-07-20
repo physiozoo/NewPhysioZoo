@@ -7738,9 +7738,23 @@ end
             GUI.SaveFiducialsStat.Enable = 'off';
             waitbar_handle = waitbar(0, 'Calculating PPG biomarkers', 'Name', 'Working on it...'); setLogo(waitbar_handle, DATA.Module);
             waitbar_handle = waitbar(1/2, waitbar_handle, 'Calculating PPG Biomarkers'); setLogo(waitbar_handle, DATA.Module);
-            calc_disp_PPG_Stats();
+            try
+                calc_disp_PPG_Stats();
+            catch
+                if isvalid(waitbar_handle)
+                    close(waitbar_handle);
+                end
+                return;
+            end
             waitbar_handle = waitbar(2/2, waitbar_handle, 'Plot PPG Fiducials Points'); setLogo(waitbar_handle, DATA.Module);
-            plotPPGFiducials4Win();
+            try 
+                plotPPGFiducials4Win();
+            catch
+                if isvalid(waitbar_handle)
+                    close(waitbar_handle);
+                end
+                return;
+            end
             if isvalid(waitbar_handle)
                 close(waitbar_handle);
             end
@@ -7764,7 +7778,8 @@ end
                     biomarkers_path = PPG_biomarkers(DATA.wfdb_record_name, DATA.customConfigFile, GUI.fiducials_path, start_sig, winLength);
                 catch e
                     h_e = errordlg(['The PPG biomarkers points were not found. ', e.message], 'Input Error'); setLogo(h_e, DATA.Module);
-                    return;
+                    rethrow(e);
+%                     return;
                 end
                 if ~isempty(biomarkers_path)
                     
