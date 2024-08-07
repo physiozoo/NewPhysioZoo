@@ -26,7 +26,7 @@ try
     in.data_path = ppg_file_name;
     in.savedata = 1;
     in.savingfolder = [tempdir, 'PPG_temp_dir'];
-    in.savingformat = 'mat';
+%     in.savingformat = 'mat';
     in.savefig = 0;
     in.show_fig = 0;
     in.print_flag = 0;
@@ -35,6 +35,10 @@ try
     in.fL = config_struct.lcf_ppg.value + 0.0000001; %0.5000001;
     in.fH = config_struct.hcf_ppg.value; %12;
     in.order = config_struct.order.value; %4;
+%     in.check_ppg_len = 0;
+    
+    in.savingformat = 'mat'; %both, mat or csv        
+    in.process_type = 'biomarkers';
     in.check_ppg_len = 0;
     
     in.start_sig = start_sig; %200;
@@ -62,7 +66,7 @@ try
             biomarkers_path.PPG_Derivatives = file_names.ppg_derivs_defs_stats_mat;
             biomarkers_path.Signal_Ratios = file_names.sig_ratios_defs_stats_mat;
             biomarkers_path.Derivatives_Ratios = file_names.derivs_ratios_defs_stats_mat;
-        end
+        end        
     else
         disp(['PPG_biomarkers error: ', error, '\n', result]);
         ME = MException('PPG_peaks:jsystem', error);
@@ -70,6 +74,7 @@ try
         %         disp(['PPG_biomarkers error: ', error, '\n', result]);
         %         rethrow(MException('PPG_biomarkers:jsystem', error));
     end
+    % 
     %     if isempty(biomarkers_path)
     %         rethrow('The PPG biomarkers was''t calculated.');
     %     end
@@ -80,3 +85,12 @@ try
 catch e
     rethrow(e);
 end
+
+% function [ppg, vpg, apg, jpg] = get_signals(in, exePath)
+%     in.savingformat = 'none';
+%     in.process_type = 'only_sig';
+%     in.check_ppg_len = 1;
+%     func_args = zip_args(fieldnames(in), struct2cell(in));
+%     file_names = save_data(exePath,func_args);
+% %     load(file_names.data_struct_mat);
+% end

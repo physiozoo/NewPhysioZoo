@@ -38,12 +38,18 @@ try
     in.order = config_struct.order.value; %4;
     in.check_ppg_len = 1;
     
+    
+    %% EXTRACT FIDUCIALS
+    in.start_sig = 0;
+    in.end_sig = -1; % whole signal
+    in.savingformat = 'mat'; %both, mat or csv
+    
     in.data_path = strrep(in.data_path, '\', '/');
     in.savingfolder = strrep(in.savingfolder ,'\', '/');
     executable_file = strrep(executable_file ,'\', '/');
-    %% EXTRACT FIDUCIALS
+    %% EXTRACT FIDUCIALS       
     in.process_type = 'fiducials';
-    
+        
     func_args = zip_args(fieldnames(in), struct2cell(in));
     command = ['"' executable_file '" "' ,'{\"function\":\"ppg_example\",\"args\":',func_args,'}'];
     % try
