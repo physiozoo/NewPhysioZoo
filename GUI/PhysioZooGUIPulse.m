@@ -316,9 +316,9 @@ end
     function DATA = createData()
         
         DATA.screensize = get( 0, 'Screensize' );
-        
-        %                 DEBUGGING MODE - Small Screen
-        %         DATA.screensize = [0 0 1250 800];
+
+%                 DEBUGGING MODE - Small Screen
+%                 DATA.screensize = [0 0 1250 800];
         
         DATA.window_size = [DATA.screensize(3)*0.99 DATA.screensize(4)*0.85];
         
@@ -333,10 +333,7 @@ end
         end
         
         DATA.mammals = {'human', 'dog', 'rabbit', 'mouse', 'default'};
-        %         DATA.mammals = {'', 'human', 'dog', 'rabbit', 'mouse', 'custom'};
-        %         DATA.GUI_mammals = {'Please, choose mammal'; 'Human'; 'Dog'; 'Rabbit'; 'Mouse'; 'Custom'};
-        %         DATA.mammal_index = 1;
-        
+                
         DATA.Integration_From_Files = {'electrocardiogram'; 'electrogram'; 'photoplethysmogram'}; % ; 'action potential'
         DATA.GUI_Integration = {'ECG'; 'Electrogram'; 'PPG'}; % ; 'Action Potential'
         DATA.integration_level = {'ecg'; 'electrogram'; 'ppg'}; % ; 'ap'
@@ -368,39 +365,9 @@ end
         DATA.ppg_fid_tags = {DATA.ppg_fid_first_deg_tags; DATA.ppg_fid_second_deg_tags; DATA.ppg_fid_third_deg_tags};
         DATA.ppg_fid_marker = {DATA.ppg_fid_marker_first; DATA.ppg_fid_marker_second; DATA.ppg_fid_marker_third};
         DATA.ppg_fid_marker_color = {DATA.ppg_fid_marker_color_first; DATA.ppg_fid_marker_color_second; DATA.ppg_fid_marker_color_third};
-        
-        %         rec_colors = lines(5);
-        %         DATA.quality_color = {rec_colors(5, :); rec_colors(3, :); rec_colors(2, :)};
-        
+                        
         DATA.quality_color = {[140 228 140]/255; [255 220 169]/255; [255 200 200]/255};
-        
-        %         DATA.rhythms_color = {[41 202 255]/255; ...
-        %             [249 68 255]/255; ...
-        %             [25 4 255]/255; ... % 88 66 255
-        %             [255 48 6]/255; ... % 40 255 76
-        %             [255 0 0]/255; ... % 255 27 50
-        %
-        %             [101 196 255]/255; ...
-        %             [255 128 242]/255; ...
-        %             [97 83 255]/255; ... % 158 126 255
-        %             [255 119 82]/255; ... % 100 255 147
-        %             [255 79 79]/255; ... % 255 93 87
-        %
-        %             [139 199 255]/255; ...
-        %             [255 166 237]/255; ...
-        %             [170 162 255]/255; ... % 196 164 255
-        %             [255 150 124]/255; ... % 138 255 185
-        %             [255 158 158]/255; ...
-        %
-        %             [139 199 255]/255; ...
-        %             [139 199 255]/255; ...
-        %             [139 199 255]/255; ... % 196 164 255
-        %             [139 199 255]/255; ... % 138 255 185
-        %             [139 199 255]/255;...
-        %
-        %             [139 199 255]/255; ... % 138 255 185
-        %             [139 199 255]/255}; % 255 142 125
-        
+                       
         DATA.rhythms_color = {[240 124 0]/255; ...
             [255 227 18]/255; ...
             [242 146 129]/255; ... % 88 66 255
@@ -1052,35 +1019,7 @@ end
             GUI.RhythmsListbox = uicontrol('Style', 'ListBox', 'Parent', GUI.DispRhythmsHBox, 'Callback', @Rhythms_listbox_Callback, 'FontSize', DATA.SmallFontSize, 'Tag', 'RhythmsList');
             
             uix.Empty('Parent', DisplayBox);
-            
-%             ppg_grid_panel = uix.Grid('Parent', DisplayBox, 'Padding', 0, 'Spacing', 0);                        
-%             for i = 1 : 3
-%                 for j = 1 : length(DATA.ppg_fid_tags{i})                                        
-%                     GUI.ppg_fid_checkboxs(i, j) = uicontrol('Style', 'Checkbox', 'Parent', ppg_grid_panel, 'Enable', 'on', ...
-%                         'Callback', @ppg_fid_checkboxs_Callback, 'String', DATA.ppg_fid_tags{i}(j, :), 'ForegroundColor', DATA.ppg_fid_marker_color{i}(j),...
-%                         'FontSize', DATA.SmallFontSize + 2, 'Tag', DATA.ppg_fid_tags{i}(j, :), 'UserData', [i, j]);                    
-%                 end
-%                 if i == 1                    
-%                     uix.Empty('Parent', ppg_grid_panel);
-%                     uix.Empty('Parent', ppg_grid_panel);
-%                     uix.Empty('Parent', ppg_grid_panel);
-%                 end
-%                 if i == 3
-%                     uix.Empty('Parent', ppg_grid_panel);
-%                     uix.Empty('Parent', ppg_grid_panel);
-%                     uix.Empty('Parent', ppg_grid_panel);
-%                     uix.Empty('Parent', ppg_grid_panel);
-%                 end
-%             end                                                                      
-%             if DATA.SmallScreen
-%                 set(ppg_grid_panel, 'Widths', 35*ones(1, 3), 'Heights', -1*ones(1, 6)); % 34
-%             else
-%                 set(ppg_grid_panel, 'Widths', 50*ones(1, 3), 'Heights', -1*ones(1, 6)); % 60
-%             end
-%             
-%             uix.Empty('Parent', DisplayBox);
-            
-            
+                      
             GUI.FilterLevelBox = textBox{25};
             GUI.CutoffFrBox = CutoffFr;
             
@@ -1840,48 +1779,11 @@ end
                         GUI.RhythmsRangeHBox.Visible = 'off';
                         
                         GUI.RR_or_HR_plot_button.Enable = 'inactive';
-                                                
-                        GUI.T_checkbox.String = '';
-                        GUI.T_checkbox.Visible = 'off';
-                        GUI.T_checkbox.Enable = 'off';
-                        
-%                         GUI.Q_checkbox.String = 'on';
-%                         GUI.R_checkbox.String = 'sp';
-%                         GUI.S_checkbox.String = 'dn';
-%                         GUI.T_checkbox.String = 'dp';
-                        
-                        GUI.P_checkbox.String = 'sp';
-                        GUI.Q_checkbox.String = 'on';
-                        GUI.R_checkbox.String = 'dn';
-                        GUI.S_checkbox.String = 'dp';
-                        GUI.T_checkbox.String = '';
-                                                                        
-                        GUI.P_checkbox.Tag = 'RPeaksCb';
-                        GUI.Q_checkbox.Tag = 'QPeaksCb';
-                        
-                        GUI.R_checkbox.Tag = 'PPeaksCb';
-                        
-                        GUI.S_checkbox.Tag = 'SPeaksCb';
-                        GUI.T_checkbox.Tag = 'TPeaksCb';
-                        
-                        GUI.R_checkbox.Value = 0;
-                        GUI.P_checkbox.Value = 1;
-                        
-%                         GUI.P_checkbox.ForegroundColor = 'w';
-%                         GUI.Q_checkbox.ForegroundColor = 'b';
-%                         GUI.R_checkbox.ForegroundColor = 'r';
-%                         GUI.S_checkbox.ForegroundColor = 'g';
-%                         GUI.T_checkbox.ForegroundColor = 'm';
-                        
-                        GUI.P_checkbox.ForegroundColor = 'r';
-                        GUI.Q_checkbox.ForegroundColor = 'b';
-                        GUI.R_checkbox.ForegroundColor = 'g';
-                        GUI.S_checkbox.ForegroundColor = 'm';
-                        GUI.T_checkbox.ForegroundColor = 'w';
-                                                
+                                                                                  
+                        GUI = set_fiducials_checkboxs(GUI, DATA.Integration);
+
                         set(GUI.FiducialsHBox, 'Widths', [-0.3 -0.7]);
                         GUI.ppg_grid_panel.Visible = 1;    
-%                         GUI.ppg_grid_panel.Enable = 0;
                         
                         DATA.Module = 'PPG';
                         setLogo(GUI.Window, DATA.Module);
@@ -1900,32 +1802,11 @@ end
                         GUI.FilteredSignal_checkbox.Enable = 'on';
                         GUI.DispRhythmsHBox.Visible = 'on';
                         GUI.RhythmsRangeHBox.Visible = 'on';
-                        GUI.P_checkbox.String = 'P-Peaks';
-                        GUI.Q_checkbox.String = 'Q-Peaks (QRS on)';
-                        GUI.R_checkbox.String = 'R-Peaks';
-                        GUI.S_checkbox.String = 'S-Peaks (QRS off)';
-                        GUI.T_checkbox.String = 'T-Peaks';
-                        GUI.T_checkbox.Visible = 'on';
-                        GUI.T_checkbox.Enable = 'on';
                         
-                        GUI.P_checkbox.Tag = 'PPeaksCb';
-                        GUI.Q_checkbox.Tag = 'QPeaksCb';
-                        GUI.R_checkbox.Tag = 'RPeaksCb';
-                        GUI.S_checkbox.Tag = 'SPeaksCb';
-                        GUI.T_checkbox.Tag = 'TPeaksCb';
-                        
-                        GUI.R_checkbox.Value = 1;
-                        GUI.P_checkbox.Value = 0;
-                        
-                        GUI.P_checkbox.ForegroundColor = [0.9290, 0.6940, 0.1250];
-                        GUI.Q_checkbox.ForegroundColor = [0.4940, 0.1840, 0.5560];
-                        GUI.R_checkbox.ForegroundColor = [1 0 0];
-                        GUI.S_checkbox.ForegroundColor = [0.8500, 0.3250, 0.0980];
-                        GUI.T_checkbox.ForegroundColor = [0.6350, 0.0780, 0.1840];
+                        GUI = set_fiducials_checkboxs(GUI, DATA.Integration);
                         
                         set(GUI.FiducialsHBox, 'Widths', [-0.9 -0.1]);
                         GUI.ppg_grid_panel.Visible = 0;
-%                         GUI.ppg_grid_panel.Enable = 0;
                         
                         DATA.Module = 'M1';
                         setLogo(GUI.Window, DATA.Module);
@@ -1933,11 +1814,7 @@ end
                         GUI.fiducials_path = '';
                         GUI.GUIConfig.NotchFilter_popupmenu.Enable = 'on';
                         GUI.BandpassFilter_checkbox.Enable = 'on';
-                        
-                        %                         GUI.GUIRecord.PeaksFileName_text.Enable = 'on';
-                        %                         GUI.GUIRecord.DataQualityFileName_text.Enable = 'on';
-                        %                         GUI.GUIRecord.RhythmsFileName_text.Enable = 'on';
-                        
+                                                
                         GUI = create_low_part_tables(GUI, GUI.Low_TabPanel, 'ECG', DATA.Padding, DATA.Spacing, DATA.SmallFontSize, DATA.BigFontSize);
                     end
                     
@@ -1992,7 +1869,12 @@ end
                     DATA.Module = 'M1';
                     setLogo(GUI.Window, DATA.Module);
                     
-                    GUI = create_low_part_tables(GUI, GUI.Low_TabPanel, 'ECG', DATA.Padding, DATA.Spacing, DATA.SmallFontSize, DATA.BigFontSize);
+                    GUI = create_low_part_tables(GUI, GUI.Low_TabPanel, 'ECG', DATA.Padding, DATA.Spacing, DATA.SmallFontSize, DATA.BigFontSize);                                        
+                    
+                    GUI = set_fiducials_checkboxs(GUI, DATA.Integration);
+                    
+                    GUI.ppg_grid_panel.Visible = 0;
+                    set(GUI.FiducialsHBox, 'Widths', [-0.9 -0.1]);
                 end
                 
                 %---------------------------------------------------------------------------------------------------
@@ -2043,13 +1925,7 @@ end
                 end
                 
                 GUI.GUIRecord.Config_text_pushbutton_handle.Enable = 'on';
-                
-%                 GUI.Fiducials_winStart.String = calcDuration(0, 0);
-%                 GUI.Fiducials_winLength.String = calcDuration(min(300, max(DATA.tm)), 0);
-%                 
-%                 GUI.Fiducials_winStart.UserData = 0;
-%                 GUI.Fiducials_winLength.UserData = min(300, max(DATA.tm)); % sec
-                
+                                
                 DATA.zoom_rect_limits = [0 DATA.firstZoom];
                 set_default_filter_level_user_data();
                 
@@ -2548,8 +2424,7 @@ end
                                                         
                             create_fiducials_filt_handles(1, 4, GUI.ECG_Axes);
                             set_fid_visible(1);
-                            
-                            
+                                                        
                             try
                                 plotPPGFiducials4Win('off');
                             catch e
@@ -6941,27 +6816,21 @@ end
         try
             if ~if_filt
                 if ch_num == 1
-                    R_line_handle = GUI.red_peaks_handle;
+                    Red_line_handle = GUI.red_peaks_handle;
                 else
-                    R_line_handle = GUI.qrs_ch(ch_num-1);
+                    Red_line_handle = GUI.qrs_ch(ch_num-1);
                 end
             else               
-                R_line_handle = GUI.red_peaks_handle_Filt(ch_num);
+                Red_line_handle = GUI.red_peaks_handle_Filt(ch_num);
             end
             
-            if isvalid(R_line_handle)
+            if isvalid(Red_line_handle)
                 if ~strcmp(DATA.Integration, 'PPG')
-                    R_line_handle.Visible = GUI.R_checkbox.Value * if_visible;
+                    Red_line_handle.Visible = GUI.R_checkbox.Value * if_visible;
                 else
-                    R_line_handle.Visible = GUI.P_checkbox.Value * if_visible;
+                    Red_line_handle.Visible = GUI.P_checkbox.Value * if_visible;
                 end
-            end
-            
-%             if strcmp(DATA.Integration, 'PPG')
-%                 P_line_handle = R_line_handle;
-%             end
-            
-            
+            end                                  
         catch
         end
         try
@@ -8143,15 +8012,11 @@ end
                            line_handle_der(i) = GUI.PPG_Axes_Array(i).Children(j);
                        end
                    end
-               end
-               
+               end               
                for i = 2 : 4
                    for j = 1 : length(DATA.ppg_fid_tags{i-1})
-                       
-                       
-                       fiducials = GUI.PQRST_position(find(GUI.PQRST_position.on >= start_sig & GUI.PQRST_position.off < end_sig), :);
-                       
-%                        ppg_fid_val = GUI.PQRST_position.(DATA.ppg_fid_tags{i-1}(j, :));
+                                              
+                       fiducials = GUI.PQRST_position(find(GUI.PQRST_position.on >= start_sig & GUI.PQRST_position.off < end_sig), :);                       
                        
                        ppg_fid_val = fiducials.(DATA.ppg_fid_tags{i-1}(j, :));
                        
@@ -8165,10 +8030,7 @@ end
                                GUI.ppg_fid_checkboxs(i-1, j).Value = 1;
                            else
                                GUI.ppg_fid_checkboxs(i-1, j).Value = 0;
-                           end
-%                            GUI.ppg_fid_checkboxs(i-1, j).Enable = 'on';
-                       else
-%                            GUI.ppg_fid_checkboxs(i-1, j).Enable = 'inactive';
+                           end                       
                        end
                    end
                    
@@ -8182,8 +8044,6 @@ end
                end   
 
 %-----------------------                                                                                               
-%                 [GUI.P_linehandle, GUI.Q_linehandle, GUI.S_linehandle, GUI.T_linehandle] = plot_ppg_fid_on_data(DATA.tm, GUI.RawChannelsData_handle(1),...
-%                     P, Q, S, T, parent_axes, ch_marker_size, 'on');
                 
                 [GUI.Q_linehandle, GUI.R_linehandle, GUI.S_linehandle, GUI.T_linehandle] = plot_ppg_fid_on_data(DATA.tm, GUI.RawChannelsData_handle(1),...
                     Q, R, S, T, parent_axes, ch_marker_size, ifVisible);
@@ -8191,31 +8051,23 @@ end
                 if strcmp(ifVisible, 'on')
                     if ~all(isnan(Q))
                         GUI.Q_checkbox.Value = 1;
-%                         GUI.Q_checkbox.Enable = 'on';
                     else
                         GUI.Q_checkbox.Value = 0;
-%                         GUI.Q_checkbox.Enable = 'inactive';
                     end
                     if ~all(isnan(R))
                         GUI.R_checkbox.Value = 1;
-%                         GUI.R_checkbox.Enable = 'on';
                     else
                         GUI.R_checkbox.Value = 0;
-%                         GUI.R_checkbox.Enable = 'inactive';
                     end
                     if ~all(isnan(S))
                         GUI.S_checkbox.Value = 1;
-%                         GUI.S_checkbox.Enable = 'on';
                     else
                         GUI.S_checkbox.Value = 0;
-%                         GUI.S_checkbox.Enable = 'inactive';
                     end
                     if ~all(isnan(T))
                         GUI.T_checkbox.Value = 1;
-%                         GUI.T_checkbox.Enable = 'on';
                     else
                         GUI.T_checkbox.Value = 0;
-%                         GUI.T_checkbox.Enable = 'inactive';
                     end
                 end
                 GUI.SaveFiducials.Enable = 'on';
@@ -8228,12 +8080,9 @@ end
     end
 %%
     function plotPPGDerivatives4Win(derivatives_path)
-        
+%         [ppg, vpg, apg, jpg]        
         ppg_der_handle = gobjects(1, 4);        
-        ppg_der_data = load(derivatives_path);
-        
-%         [ppg, vpg, apg, jpg]
-        
+        ppg_der_data = load(derivatives_path);              
         try
             delete(GUI.FilteredData_handle);
             GUI = rmfield(GUI, 'FilteredData_handle');
@@ -8292,7 +8141,6 @@ end
     function reset_fiducials_checkboxs()
         GUI.P_checkbox.Value = 0;
         GUI.Q_checkbox.Value = 0;
-%         GUI.R_checkbox.Value = 1;
         GUI.S_checkbox.Value = 0;
         GUI.T_checkbox.Value = 0;
         
@@ -8302,9 +8150,7 @@ end
         else
             GUI.P_checkbox.Value = 0;
             GUI.R_checkbox.Value = 1;
-        end
-        
-        
+        end                
         try
             for i = 1 : 3
                 for j = 1 : length(DATA.ppg_fid_tags{i})                                        
@@ -8312,7 +8158,7 @@ end
                 end
             end
         catch e
-            disp(e);
+%             disp(e);
         end
     end
 %%
@@ -8528,19 +8374,18 @@ end
                 create_fiducials_filt_handles(1, ch_marker_size, parent_axes);
                 set_fid_visible(1);
                 
-                
-                for i = 2 : 4
-                    for j = 1 : length(DATA.ppg_fid_tags{i-1})
-                        GUI.ppg_fid_checkboxs(i-1, j).Enable = 'inactive';
+                if strcmp(DATA.Integration, 'PPG')
+                    for i = 2 : 4
+                        for j = 1 : length(DATA.ppg_fid_tags{i-1})
+                            GUI.ppg_fid_checkboxs(i-1, j).Enable = 'inactive';
+                        end
                     end
-                end
-                %                             GUI.P_checkbox.Enable = 'inactive';
-                GUI.Q_checkbox.Enable = 'inactive';
-                GUI.R_checkbox.Enable = 'inactive';
-                GUI.S_checkbox.Enable = 'inactive';
-                GUI.T_checkbox.Enable = 'inactive';
-                
-                
+                    
+                    GUI.Q_checkbox.Enable = 'inactive';
+                    GUI.R_checkbox.Enable = 'inactive';
+                    GUI.S_checkbox.Enable = 'inactive';
+                    GUI.T_checkbox.Enable = 'inactive';                               
+                end                
             end
         end
     end
