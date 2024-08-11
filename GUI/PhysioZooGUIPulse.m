@@ -1706,7 +1706,7 @@ end
                     if ~strcmp(DATA.Integration, 'PPG')
                         [GUI.ECG_Axes, GUI.RRInt_Axes] = create_graphs_panel(GUI.graphs_panel_up_central, DATA.Spacing, myUpBackgroundColor);
                     else % PPG
-                        GUI.PPG_Axes_Array = create_graphs_panel_PPG(GUI.graphs_panel_up_central, DATA.Spacing, DATA.Padding, myUpBackgroundColor, 5);
+                        GUI.PPG_Axes_Array = create_graphs_panel_ppg(GUI.graphs_panel_up_central, DATA.Spacing, DATA.Padding, myUpBackgroundColor, 5);
                         GUI.ECG_Axes = GUI.PPG_Axes_Array(1); 
                         GUI.RRInt_Axes = GUI.PPG_Axes_Array(5);                                                 
 %                         GUI.ECG_Axes_Array

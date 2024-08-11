@@ -1,5 +1,5 @@
 %%
-function PPG_Axes_Handles = create_graphs_panel_PPG(parent_panel, Spacing, Padding, myUpBackgroundColor, ch_num)
+function PPG_Axes_Handles = create_graphs_panel_ppg(parent_panel, Spacing, Padding, myUpBackgroundColor, ch_num)
 
 PPG_Axes_Handles = gobjects(1, ch_num);
 
