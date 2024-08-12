@@ -358,9 +358,12 @@ end
         DATA.ppg_fid_marker_second = ['o'; 's'; 'o'; 's'; 'o'; 's'];
         DATA.ppg_fid_marker_third = ['o'; 's'];
         
-        DATA.ppg_fid_marker_color_first = ['r'; 'b'; 'g'];
-        DATA.ppg_fid_marker_color_second = ['r'; 'b'; 'g'; 'm'; 'y'; 'c'];
-        DATA.ppg_fid_marker_color_third = ['r'; 'b'];
+%         DATA.ppg_fid_marker_color_first = ['r'; 'b'; 'g'];
+%         DATA.ppg_fid_marker_color_second = ['r'; 'b'; 'g'; 'm'; 'y'; 'c'];
+%         DATA.ppg_fid_marker_color_third = ['r'; 'b'];
+        DATA.ppg_fid_marker_color_first = [[1 0 0]; [0 0 1]; [0 1 0]];
+        DATA.ppg_fid_marker_color_second = [[1 0 0]; [0 0 1]; [0 1 0]; [1 0 1]; [0.929 0.694 0.125]; [0 1 1]];
+        DATA.ppg_fid_marker_color_third = [[1 0 0]; [0 0 1]];
         
         DATA.ppg_fid_tags = {DATA.ppg_fid_first_deg_tags; DATA.ppg_fid_second_deg_tags; DATA.ppg_fid_third_deg_tags};
         DATA.ppg_fid_marker = {DATA.ppg_fid_marker_first; DATA.ppg_fid_marker_second; DATA.ppg_fid_marker_third};
@@ -618,7 +621,7 @@ end
             for i = 1 : 3
                 for j = 1 : length(DATA.ppg_fid_tags{i})                                        
                     GUI.ppg_fid_checkboxs(i, j) = uicontrol('Style', 'Checkbox', 'Parent', GUI.ppg_grid_panel, 'Enable', 'on', ...
-                        'Callback', @ppg_fid_checkboxs_Callback, 'String', DATA.ppg_fid_tags{i}(j, :), 'ForegroundColor', DATA.ppg_fid_marker_color{i}(j),...
+                        'Callback', @ppg_fid_checkboxs_Callback, 'String', DATA.ppg_fid_tags{i}(j, :), 'ForegroundColor', DATA.ppg_fid_marker_color{i}(j, :),...
                         'FontSize', DATA.SmallFontSize, 'Tag', DATA.ppg_fid_tags{i}(j, :), 'UserData', [i, j]);                    
                 end
                 if i == 1                    
@@ -8022,7 +8025,7 @@ end
                        
                        GUI.ppg_fid_handles(i-1, j) = line(DATA.tm(ppg_fid_val), line_handle_der(i).YData(ppg_fid_val), 'Parent', GUI.PPG_Axes_Array(i),...
                            'LineStyle', 'none', 'LineWidth', 1.5, 'Marker', DATA.ppg_fid_marker{i-1}(j), 'MarkerSize', ch_marker_size,...
-                           'MarkerFaceColor', 'w', 'MarkerEdgeColor', DATA.ppg_fid_marker_color{i-1}(j), 'Tag', DATA.ppg_fid_tags{i-1}(j, :), 'Visible', ifVisible);
+                           'MarkerFaceColor', 'w', 'MarkerEdgeColor', DATA.ppg_fid_marker_color{i-1}(j, :), 'Tag', DATA.ppg_fid_tags{i-1}(j, :), 'Visible', ifVisible);
                        lines_tags{j} = GUI.ppg_fid_handles(i-1, j).Tag;
                                      
                        if strcmp(ifVisible, 'on')
