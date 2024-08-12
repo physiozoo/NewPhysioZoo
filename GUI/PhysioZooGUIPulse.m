@@ -1863,6 +1863,9 @@ end
                     GUI.Fiducials_winStart.Enable = 'off';
                     GUI.Fiducials_winLength.Enable = 'off';
                     
+                    GUI.FilteredSignal_checkbox.Enable = 'on';
+                    GUI.FilteredSignal_checkbox.Value = 0;
+                    
                     GUI.ChAmpDecreaseButton.Enable = 'off';
                     GUI.ChAmpIncreaseButton.Enable = 'off';
                     GUI.ChAmpSourceButton.Enable = 'off';
