@@ -13,6 +13,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [1.7.2] - 2024-08-14
+
+### Added
+
+Add PPG derivatives display
 
 ## [1.7.1] - 2024-01-27
 
